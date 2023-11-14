@@ -1,79 +1,74 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## System Requirements
 
-# Getting Started
+**CPU:** Several sources recommend an Intel Core i5 or greater
+**RAM:** On Windows, it is recommended to have at least 8 GB of RAM.
+**Windows Version:** React Native runs on all Windows 11 Systems, and all Windows 10 Systems with Windows version 10.0.16299.0 or higher. Some features may not be available on Windows 10.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Installation and Configuration
 
-## Step 1: Start the Metro Server
+1) Install Node and JDK. Most modern versions of Android Studio do not require the external installation of JDK
+2) Install Android Studio
+	a) Ensure that that the Android SDK, Android SDK Platform and Android Virtual Device components are installed
+3) Configure ANDROID_HOME Environment Variable
+	a) Open Control Panel
+	b) go to User Accounts, then User Accounts again
+	c) go to Change my Environent Variables
+	d) Go to New... To create a new ANDROID_HOME user variable that points to your Android SDK. This path can be found under Android Studio Settings > Languages & Frameworks > Android SDK
+4) Add Platform Tools to PATH
+	a) Return to Change my Environment Variables
+	b) Select Path variable
+	c) edit > new
+	d) add %LOCALAPPDATA%\Android\Sdk\platform-tools
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Project Creation
 
-To start Metro, run the following command from the _root_ of your React Native project:
+It's suggested to create a folder for your React Native Projects, so you can find and work with them more easily. Do not place this folder in your OneDrive
 
-```bash
-# using npm
-npm start
+1) Navigate to your folder in cmd and run the command "npx react-native@latest init [Project Name]" where [Project Name] is the name of your project
 
-# OR using Yarn
-yarn start
-```
+2) That's all!
 
-## Step 2: Start your Application
+### Changing to Javascript
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+If you want to change from using Typescrypt to Javascript:
 
-### For Android
+1) Open app.tsx
+2) Change its extension to .jsx
+3) Erase any underlined code until it resembles javascript
 
-```bash
-# using npm
-npm run android
+## Running The Project
 
-# OR using Yarn
-yarn android
-```
+First, to run the app virtually, you need to start a virtual device. To do this: 
+1) Open Android Studio, go to More Actions and then Device Manager. 
+2) Create a new phone device, hit next.
+3) You will be prompted to choose a system image. One should already be selected. Download it. This may take time.
+4) Name your device, and hit finish. You can now run your device.
 
-### For iOS
+In order to get your project started for the first time, it should be ran in Android Studio. To do this:
+1) Open Android Studio, select 'Open' and find your project. Select the Android folder to open.
+2) Enter the Build menu located on the bottom bar of the studio.
+3) Allow the studio to finish building your project.
+4) Run your project. This should open the app in the Android Emulator. This may take several minutes.
 
-```bash
-# using npm
-npm run ios
+From here you'll need to start Metro, which is a JS Bundler that comes with React Native. To start Metro, run
 
-# OR using Yarn
-yarn ios
-```
+`npm start` 
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+in the react project folder.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+### Running The Project From Commmand Line
 
-## Step 3: Modifying your App
+1) Open CMD and navigate to your project folder
+2) Start Metro
+3) Press a
 
-Now that you have successfully run the app, let's modify it.
+## Troubleshooting and Resources
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+React Native Setup: https://reactnative.dev/docs/environment-setup?guide=native&package-manager=npm
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+React Native has its own Troubleshooting page for common issues: https://reactnative.dev/docs/troubleshooting#missing-libraries-for-react
 
-## Congratulations! :tada:
+Metro Documentation: https://facebook.github.io/metro/docs/concepts
 
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### Certain files or scripts are not found!
+Try checking what folder you're trying to access them from
