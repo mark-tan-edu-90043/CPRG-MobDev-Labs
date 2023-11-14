@@ -24,6 +24,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { useState } from 'react';
+
 import ToDoList from './ToDoList.jsx';
 import ToDoForm from './ToDoForm.jsx';
 
@@ -54,6 +56,13 @@ function Section({children, title}) {
 }
 
 function App() {
+
+  const [tasks, setTasks] = useState([
+    'Do Laundry',
+    'Go to gym',
+    'Walk dog'
+  ]);
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -63,7 +72,7 @@ function App() {
   return (
     <SafeAreaView style={backgroundStyle}>
       <ToDoForm />
-      <ToDoList />
+      <ToDoList tasks={tasks} />
     </SafeAreaView>
   );
 }
