@@ -7,19 +7,37 @@ import {
   Text,
   ScrollView,
   TextInput,
-  Button
+  Button,
 } from 'react-native';
 
 import styles from './App.jsx';
 
-export default function() {
+
+
+export default function({ addTask, addAbsurdNumberOfTasks, clearTasks }) {
+
+  const [taskText, setTaskText] = React.useState('');
+
     return (
         <View style={styles.form}>
         <TextInput
           style={styles.input}
           placeholder="Add a new task..."
+          onChangeText={(text) => setTaskText(text)}
+          value={taskText}
         />
-        <Button title="Add" />
+        <Button 
+        title="Add" 
+        onPress={() => addTask(taskText)}
+        />
+        <Button 
+        title="Add . . ?" 
+        onPress={() => addAbsurdNumberOfTasks(taskText)}
+        />
+        <Button 
+        title="Clear All Tasks" 
+        onPress={() => clearTasks()}
+        />
         </View>
     )
 }

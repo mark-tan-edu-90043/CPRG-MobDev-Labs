@@ -69,9 +69,25 @@ function App() {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const addTask = (taskText) => {
+    setTasks([...tasks, taskText]);
+  }
+
+  const addAbsurdNumberOfTasks = (taskText) => {
+    setTasks(prevTasks => { //This one is just being silly, really.
+      const newTasks = Array.from({ length: 200 }, () => `${taskText}`);
+      return [...prevTasks, ...newTasks];
+    });
+  };
+  
+
+  const clearTasks = () => {
+     setTasks([]);
+  }
+
   return (
     <SafeAreaView style={backgroundStyle}>
-      <ToDoForm />
+      <ToDoForm addTask={addTask} addAbsurdNumberOfTasks={addAbsurdNumberOfTasks} clearTasks={clearTasks}/>
       <ToDoList tasks={tasks} />
     </SafeAreaView>
   );
