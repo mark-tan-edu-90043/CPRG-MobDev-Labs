@@ -26,8 +26,13 @@ import {
 
 import { useState } from 'react';
 
-import ToDoList from './ToDoList.jsx';
-import ToDoForm from './ToDoForm.jsx';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import ToDoList from './src/components/ToDoList.jsx';
+import ToDoForm from './src/components/ToDoForm.jsx';
+import HomeScreen from './src/screens/HomeScreen.jsx';
+import AboutScreen from './src/screens/AboutScreen.jsx';
 
 function Section({children, title}) {
   const isDarkMode = useColorScheme() === 'dark';
@@ -85,11 +90,21 @@ function App() {
      setTasks([]);
   }
 
+  const Stack = createStackNavigator();
+
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <ToDoForm addTask={addTask} addAbsurdNumberOfTasks={addAbsurdNumberOfTasks} clearTasks={clearTasks}/>
-      <ToDoList tasks={tasks} />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+      <HomeScreen navigation={Stack}/>
+      <AboutScreen navigation={Stack}/>
+      <SafeAreaView style={backgroundStyle}>
+            <ToDoForm addTask={addTask} addAbsurdNumberOfTasks={addAbsurdNumberOfTasks} clearTasks={clearTasks}/>
+            <ToDoList tasks={tasks} />
+            </SafeAreaView>
+    </NavigationContainer>
   );
 }
 

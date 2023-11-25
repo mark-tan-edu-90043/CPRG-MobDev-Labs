@@ -10,7 +10,7 @@ import {
     Button
   } from 'react-native';
 
-  import styles from './App.jsx';
+  import styles from '../../App.jsx';
 
 export default function ToDoList({tasks}) {
     return (
